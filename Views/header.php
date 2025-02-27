@@ -12,13 +12,14 @@
 //}
 $loggedIn = false;
 $username = 'charlse';
+$css_changed = filemtime(APP_ROOT . '/public/css/stylesheet.css');
 ?>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vincent's Site</title>
-    <link href="<?=DOC_ROOT?>css/stylesheet.css" rel="stylesheet">
+    <link href="<?=DOC_ROOT?>/public/css/stylesheet.css?version=<?=$css_changed?>" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -26,16 +27,12 @@ $username = 'charlse';
         <h1>Tasks</h1>
         <div>
             <?php if ($loggedIn === true):?>
-            <div class="nav-item p-1">
+            <div>
                 <span>Hello <?php echo $username?></span>
             </div>
             <?php else: ?>
-            <div class="nav-item p-1">
-                <a class="btn btn-primary" href="http://192.168.1.124/index.php?file=signup">Sign Up</a>
-            </div>
-            <div class="nav-item p-1">
-                <a class="btn" href="http://192.168.1.124/index.php?file=login">Sign In</a>
-            </div>
+            <a>Sign Up</a>
+            <a>Sign In</a>
             <?php endif; ?>
         </div>
     </nav>

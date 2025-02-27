@@ -30,12 +30,12 @@ class Task
     }
 
 
-    public function addTask($name, $description, $status) : bool
+    public function addTask($name, $description) : bool
     {
         try
         {
-            $sql = "INSERT INTO tasks (name, description, status) VALUES (:name, :description, :status)";
-            $this->db->runSQL($sql, [':name'=>$name, ':description'=>$description, ':status'=>$status]);
+            $sql = "INSERT INTO tasks (name, description) VALUES (:name, :description)";
+            $this->db->runSQL($sql, [':name'=>$name, ':description'=>$description]);
             return true;
         }
         catch(\PDOException $e)
@@ -44,9 +44,17 @@ class Task
         }
     }
 
-    public function deleteTask($id) : void
+    public function deleteTask($id) : bool
     {
+        try
+        {
         $sql = "DELETE FROM tasks WHERE task_id = :id";
         $this->db->runSQL($sql, [':id'=>$id]);
+        return true;
+        }
+        catch(\PDOException $e)
+        {
+            return false;
+        }
     }
 }

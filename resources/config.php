@@ -2,10 +2,10 @@
 
 define('DEV', true);
 define('ROOT_FOLDER', '/public');
-define('DOC_ROOT', '/task/public/');
+define('DOC_ROOT', '/task/');
 // DB Settings
 $type = 'mysql';
-$host = '172.18.0.2';
+$host = '192.168.1.124';
 $port = 3306;
 $db_user = 'root';
 $db_pass = 'Lagiacrus7!';
