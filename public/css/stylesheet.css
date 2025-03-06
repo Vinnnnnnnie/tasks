@@ -8,7 +8,6 @@ body {
     background: #e0e0e0;
     min-height:100%;
     min-width:100%;
-    padding:0;
     font-family:Arial, Geneva, Tahoma, sans-serif;
 }
 nav {
@@ -51,6 +50,8 @@ ul.task-list {
     padding: 0;
 }
 .task-item {
+    display: flex;
+    justify-content: space-between;
     padding:0.5rem;
     border-radius: 0.5rem;
     background: #dadada;
@@ -63,4 +64,29 @@ ul.task-list {
 }
 .task-title {
     font-weight: 550;
+}
+.task-details {
+    width:100%;
+}
+.task-details textarea {
+    width:100%;
+}
+/*.task-container form {*/
+/*    padding:0.5rem;*/
+/*    border-radius: 0.5rem;*/
+/*    background: #dadada;*/
+/*    margin-bottom:0.5rem;*/
+/*}*/
+.task-form {
+    margin:0;
+}
+.check-task {
+    height: fit-content;
+    align-self: center;
+    margin: 0.5rem;
+}
+.add-task {
+    height: fit-content;
+    align-self: center;
+    margin: 0.5rem;
 }

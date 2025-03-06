@@ -11,9 +11,11 @@ $tasks = $CMS->getTask()->getAll();
     <ul class="task-list">
     <?php foreach ($tasks as $task): ?>
         <li class="task-item">
-            <div class="task-title"><?=$task['name']?></div>
-            <div class="task-description"><?=$task['description']?></div>
-            <input type="checkbox"><?=$task['status']?>
+            <div class="task-details">
+                <div class="task-title"><?=$task['name']?></div>
+                <div class="task-description"><?=$task['description']?></div>
+            </div>
+            <input type="checkbox" class="check-task">
         </li>
     <?php endforeach; ?>
     </ul>
@@ -22,24 +24,30 @@ $tasks = $CMS->getTask()->getAll();
 <?php else:?>
     <div>No tasks to be found</div>
 <?php endif;?>
+    <form class="task-form" method="post" action="<?=DOC_ROOT?>Controllers/controller.php?action=addTask">
+        <div class="task-item">
+            <div class="task-details">
+                <input type="text" placeholder="Name" name="name">
+                <textarea type="text" placeholder="Description" name="description"></textarea>
+            </div>
+            <input type="submit" class="add-task" value="+">
+        </div>
+    </form>
 </div>
-<form method="post" action="<?=DOC_ROOT?>Controllers/controller.php?action=addTask">
-    <input type="text" placeholder="Name" name="name">
-    <input type="text" placeholder="Description" name="description">
-    <input type="submit" value="Submit">
-</form>
+
 
 <script>
     document.addEventListener('submit', (e) => {
         // Store reference to form to make later code easier to read
         const form = e.target;
-
+        console.log(form);
         // Post data using the Fetch API
-        fetch(form.action, {
-            method: form.method,
-            body: new FormData(form),
-        });
-
+        // fetch(form.action, {
+        //     method: form.method,
+        //     body: new FormData(form),
+        // });
+        form[0].value = '';
+        form[1].value = '';
         // Prevent the default form submit
         e.preventDefault();
     });
