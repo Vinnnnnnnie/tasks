@@ -52,7 +52,7 @@ ul.task-list {
 .task-item {
     display: flex;
     justify-content: space-between;
-    padding:0.5rem;
+    padding: 0 0.5rem 0 0;
     border-radius: 0.5rem;
     background: #dadada;
     margin-bottom:0.5rem;
@@ -67,6 +67,45 @@ ul.task-list {
 }
 .task-details {
     width:100%;
+    padding: 0.5rem;
+}
+div.task-description:read-only {
+    width: 100%;
+    background: none;
+    border: none;
+    resize: none;
+    color: #383838;
+}
+.task-options {
+    display: flex;
+    flex-direction: column;
+}
+.button {
+    border: none;
+}
+.edit-button {
+    background: green;
+    color: white;
+    border-radius: 0.25rem 0 0 0;
+}
+
+.save-button {
+    background: blue;
+    color: white;
+    border-radius: 0.25rem 0 0 0;
+}
+
+.delete-button {
+    background:red;
+    color: white;
+    border-radius: 0 0 0 0.25rem;
+}
+.task-options button {
+    height:100%;
+}
+input.task-title:read-only {
+    border: none;
+    background: none;
 }
 .task-details textarea {
     width:100%;

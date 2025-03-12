@@ -20,6 +20,9 @@ $css_changed = filemtime(APP_ROOT . '/public/css/stylesheet.css');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vincent's Site</title>
     <link href="<?=DOC_ROOT?>/public/css/stylesheet.css?version=<?=$css_changed?>" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="<?=DOC_ROOT?>/public/js/jquery3.7.1.min.js"></script>
+
 </head>
 <body>
 <header>
