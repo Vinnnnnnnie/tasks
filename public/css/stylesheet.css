@@ -76,6 +76,14 @@ div.task-description:read-only {
     resize: none;
     color: #383838;
 }
+div.task-description.editable {
+    width: 100%;
+    background: white;
+    border: dimgrey 1px solid;
+    border-radius:0.25rem;
+    resize: none;
+    color: #383838;
+}
 .task-options {
     display: flex;
     flex-direction: column;

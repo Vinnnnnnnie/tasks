@@ -18,7 +18,9 @@ switch($_GET['action'])
         return $result;
         break;
     case 'updateTask':
-        $id = $_GET['id'] ?? null;
+        print_rr($_POST);
+        print_rr($_REQUEST);
+        $id = $_POST['id'] ?? null;
         $name = $_POST['name'] ?? null;
         $description = $_POST['description'] ?? null;
         $result = $CMS->getTask()->updateTask($id, $name, $description);

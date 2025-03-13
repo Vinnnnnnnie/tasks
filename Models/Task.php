@@ -57,4 +57,17 @@ class Task
             return false;
         }
     }
+    public function updateTask($id, $name, $description) : bool
+    {
+        try
+        {
+            $sql = "UPDATE tasks SET name = :name, description = :description WHERE task_id = :id";
+            $this->db->runSQL($sql, [':name'=>$name, ':description'=>$description, ':id'=>$id]);
+            return true;
+        }
+        catch(\PDOException $e)
+        {
+            return false;
+        }
+    }
 }
