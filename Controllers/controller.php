@@ -1,11 +1,7 @@
 <?php
 include '../src/bootstrap.php';
-?>
-<script>console.log('made it here')</script>
-<?php
 $action = $_GET['action'] ?? null;
-switch($_GET['action'])
-{
+switch($_GET['action']) {
     case 'addTask':
         $name = $_POST['name'] ?? null;
         $description = $_POST['description'] ?? null;
@@ -25,5 +21,13 @@ switch($_GET['action'])
         $description = $_POST['description'] ?? null;
         $result = $CMS->getTask()->updateTask($id, $name, $description);
         return $result;
+        break;
+    case 'getTasks':
+        $tasks = $CMS->getTask()->getAll();
+        $tasklists = [$tasks];
+        foreach ($tasklists as $list):
+            include APP_ROOT . '/Views/pages/tasklists.php';
+        endforeach;
+
         break;
 }
